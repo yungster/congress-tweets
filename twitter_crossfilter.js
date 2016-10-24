@@ -104,7 +104,7 @@ d3.csv(window.CrossFilter.config.dataUrl, function (data) {
     .xAxis().ticks(5);
 
   chartMentions 
-    .width(700)
+    .width(650)
     .height(250)
     .x(d3.scale.ordinal())
     .xUnits(dc.units.ordinal)
