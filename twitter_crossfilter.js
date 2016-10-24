@@ -94,7 +94,7 @@ d3.csv(window.CrossFilter.config.dataUrl, function (data) {
     .ordinalColors(['#525252'])
 
   chartParty
-    .width(400)
+    .width(300)
     .height(210)
     .margins({top: 20, left: 10, right: 20, bottom: 40})
     .ordinalColors(['#3690c0','#ef3b2c'])
@@ -104,7 +104,7 @@ d3.csv(window.CrossFilter.config.dataUrl, function (data) {
     .xAxis().ticks(5);
 
   chartMentions 
-    .width(350)
+    .width(450)
     .height(250)
     .x(d3.scale.ordinal())
     .xUnits(dc.units.ordinal)
