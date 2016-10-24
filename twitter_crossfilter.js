@@ -171,8 +171,10 @@ var ofs = 1, pag = 20;
   function next() {
       ofs += pag;
       update();
+      tweetTable.redraw();
   }
   function last() {
       ofs -= pag;
       update();
+      tweetTable.redraw();
   }
