@@ -7,7 +7,7 @@ var tweetTable = dc.dataTable('#data-table');
 var tweetCount = dc.dataCount('.dc-data-count');
 var ndx;
   
-d3.csv('tweet_mentions_noother_data.csv', function (data) {
+d3.csv(window.CrossFilter.config.dataUrl, function (data) {
 
   var numberFormat = d3.format('.1f');
   
