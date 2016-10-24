@@ -80,9 +80,9 @@ d3.csv(window.CrossFilter.config.dataUrl, function (data) {
             return d.value.median; });
             
   monthChart
-    .width(350)
+    .width(400)
     .height(210)
-    .margins({top: 20, right: 50, bottom: 40, left: 40})
+    .margins({top: 20, right: 20, bottom: 40, left: 40})
     .dimension(monthDimension)
     .group(monthGroup)
     .x(d3.time.scale().domain([new Date(2016, 2, 15), new Date(2016, 8, 15)]))
@@ -96,7 +96,7 @@ d3.csv(window.CrossFilter.config.dataUrl, function (data) {
   chartParty
     .width(400)
     .height(210)
-    .margins({top: 20, left: 50, right: 10, bottom: 40})
+    .margins({top: 20, left: 10, right: 20, bottom: 40})
     .ordinalColors(['#3690c0','#ef3b2c'])
     .elasticX(true)
     .dimension(partyDimension)
@@ -104,7 +104,7 @@ d3.csv(window.CrossFilter.config.dataUrl, function (data) {
     .xAxis().ticks(5);
 
   chartMentions 
-    .width(400)
+    .width(350)
     .height(250)
     .x(d3.scale.ordinal())
     .xUnits(dc.units.ordinal)
