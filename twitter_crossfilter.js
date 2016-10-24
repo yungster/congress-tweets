@@ -137,7 +137,7 @@ d3.csv(window.CrossFilter.config.dataUrl, function (data) {
         function (d) {
             var dateFormat = d3.time.format("%B %d, %H:%M");
             return dateFormat(d.dd);},
-        function(d) {return d.screen_name;},
+        function(d) {return '@'+d.screen_name;},
         function(d) {return d.party;},
         function(d) {return d.text;},
         function(d) {return d.retweet_count;},
