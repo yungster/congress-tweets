@@ -171,10 +171,8 @@ var ofs = 1, pag = 20;
   function next() {
       ofs += pag;
       update();
-      dc.renderAll();
   }
   function last() {
       ofs -= pag;
       update();
-      dc.renderAll();
   }
