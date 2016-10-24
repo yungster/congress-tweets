@@ -81,7 +81,7 @@ d3.csv(window.CrossFilter.config.dataUrl, function (data) {
             
   monthChart
     .width(350)
-    .height(170)
+    .height(210)
     .margins({top: 20, right: 50, bottom: 40, left: 40})
     .dimension(monthDimension)
     .group(monthGroup)
@@ -95,7 +95,7 @@ d3.csv(window.CrossFilter.config.dataUrl, function (data) {
 
   chartParty
     .width(400)
-    .height(170)
+    .height(210)
     .margins({top: 20, left: 50, right: 10, bottom: 40})
     .ordinalColors(['#3690c0','#ef3b2c'])
     .elasticX(true)
