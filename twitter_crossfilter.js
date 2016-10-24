@@ -80,7 +80,7 @@ d3.csv(window.CrossFilter.config.dataUrl, function (data) {
             return d.value.median; });
             
   monthChart
-    .width(450)
+    .width(350)
     .height(170)
     .margins({top: 20, right: 50, bottom: 40, left: 40})
     .dimension(monthDimension)
@@ -94,7 +94,7 @@ d3.csv(window.CrossFilter.config.dataUrl, function (data) {
     .ordinalColors(['#525252'])
 
   chartParty
-    .width(450)
+    .width(400)
     .height(170)
     .margins({top: 20, left: 50, right: 10, bottom: 40})
     .ordinalColors(['#3690c0','#ef3b2c'])
@@ -104,7 +104,7 @@ d3.csv(window.CrossFilter.config.dataUrl, function (data) {
     .xAxis().ticks(5);
 
   chartMentions 
-    .width(650)
+    .width(400)
     .height(250)
     .x(d3.scale.ordinal())
     .xUnits(dc.units.ordinal)
