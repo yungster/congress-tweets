@@ -80,35 +80,37 @@ d3.csv(window.CrossFilter.config.dataUrl, function (data) {
             return d.value.median; });
             
   dateChart
-    .width(400)
-    .height(210)
-    .margins({top: 20, right: 10, bottom: 40, left: 10})
+    .width(500)
+    .height(160)
+    .margins({top: 20, right: 10, bottom: 40, left: 20})
     .dimension(dateDimension)
     .group(dateGroup)
-    .x(d3.time.scale().domain([new Date(2016, 0, 15), new Date(2016, 9, 30)]))
+    .x(d3.time.scale().domain([new Date(2016, 1, 1), new Date(2016, 9, 30)]))
     .xUnits(d3.time.days)
     .barPadding(0.0)
     .outerPadding(0.00)
     .centerBar(true)
     .elasticY(true)
     .ordinalColors(['#525252'])
+	.xaxis.ticks(d3.time.months, 1)
+	   .tickFormat(d3.time.format("%b"));
 
   chartParty
     .width(200)
-    .height(210)
-    .margins({top: 20, left: 10, right: 20, bottom: 40})
+    .height(160)
+    .margins({top: 0, left: 0, right: 0, bottom: 40})
     .ordinalColors(['#3690c0','#ef3b2c'])
     .elasticX(true)
     .dimension(partyDimension)
     .group(partyGroup)
-    .xAxis().ticks(5);
+    .xAxis().ticks(4);
 
   chartMentions 
     .width(400)
-    .height(250)
+    .height(200)
     .x(d3.scale.ordinal())
     .xUnits(dc.units.ordinal)
-    .margins({top: 20, left: 50, right: 50, bottom: 80})
+    .margins({top: 20, left: 30, right: 10, bottom: 80})
     .group(mentionsGroup)
     .dimension(mentionsDimension)
     .barPadding(0.1)
