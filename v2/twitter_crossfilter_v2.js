@@ -156,12 +156,17 @@ d3.csv(window.CrossFilter.config.dataUrl, function (data) {
   dc.renderAll();  
 })
 var ofs = 1, pag = 20;
+var currentSize = ndx.size();
+var disp;
+
   function reset_display() {
 	ofs=1, pag=20;
 	display();
 	}
 
   function display() {
+	  disp = document.getElementsByClassName('filter-count')[0].innerHTML
+	  currentSize = parseFloat(disp.replace(',',''));
       d3.select('#begin')
           .text(ofs);
       d3.select('#end')
@@ -169,7 +174,7 @@ var ofs = 1, pag = 20;
       d3.select('#last')
           .attr('disabled', ofs-pag<0 ? 'true' : null);
       d3.select('#next')
-          .attr('disabled', ofs+pag>=ndx.size() ? 'true' : null);
+          .attr('disabled', ofs+pag>=currentSize ? 'true' : null);
       d3.select('#size').text(ndx.size());
   }
   function update() {
