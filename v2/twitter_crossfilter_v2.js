@@ -100,7 +100,7 @@ d3.csv(window.CrossFilter.config.dataUrl, function (data) {
   chartParty
     .width(180)
     .height(160)
-    .margins({top: 0, left: 15, right: 10, bottom: 40})
+    .margins({top: 0, left: 15, right: 30, bottom: 40})
     .ordinalColors(['#3690c0','#ef3b2c'])
     .elasticX(true)
     .dimension(partyDimension)
@@ -156,6 +156,11 @@ d3.csv(window.CrossFilter.config.dataUrl, function (data) {
   dc.renderAll();  
 })
 var ofs = 1, pag = 20;
+  function reset_display() {
+	ofs=1, pag=20;
+	display();
+	}
+
   function display() {
       d3.select('#begin')
           .text(ofs);
