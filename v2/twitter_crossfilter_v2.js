@@ -92,13 +92,14 @@ d3.csv(window.CrossFilter.config.dataUrl, function (data) {
     .centerBar(true)
     .elasticY(true)
     .ordinalColors(['#525252'])
+	.yAxis().ticks(5)
 	.xAxis().ticks(d3.time.months, 1)
 	   .tickFormat(d3.time.format("%b"));
 
   chartParty
     .width(180)
     .height(160)
-    .margins({top: 0, left: 0, right: 10, bottom: 40})
+    .margins({top: 0, left: 15, right: 10, bottom: 40})
     .ordinalColors(['#3690c0','#ef3b2c'])
     .elasticX(true)
     .dimension(partyDimension)
@@ -124,7 +125,7 @@ d3.csv(window.CrossFilter.config.dataUrl, function (data) {
             return "something";})
     .y(d3.scale.sqrt())
     .elasticY(true)
-    .yAxis().ticks(4);
+    .yAxis().ticks(5);
 
   tweetCount
     .dimension(ndx)
