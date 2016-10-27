@@ -108,7 +108,7 @@ d3.csv(window.CrossFilter.config.dataUrl, function (data) {
     .xAxis().ticks(4);
 
   chartMentions 
-    .width(400)
+    .width(350)
     .height(200)
     .x(d3.scale.ordinal())
     .xUnits(dc.units.ordinal)
@@ -124,7 +124,7 @@ d3.csv(window.CrossFilter.config.dataUrl, function (data) {
             if(d.key == 'Other') 
                 return "other"
             return "something";})
-    .y(d3.scale.sqrt())
+    .y(d3.scale.linear())
     .elasticY(true)
     .yAxis().ticks(5);
 
