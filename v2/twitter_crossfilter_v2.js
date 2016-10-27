@@ -175,6 +175,8 @@ var disp;
           .attr('disabled', ofs-pag<0 ? 'true' : null);
       d3.select('#next')
           .attr('disabled', ofs+pag>=currentSize ? 'true' : null);
+      d3.select('#reset_display')
+          .attr('disabled', ofs-pag<0 ? 'true' : null);
       d3.select('#size').text(ndx.size());
   }
   function update() {
