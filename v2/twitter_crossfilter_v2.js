@@ -82,7 +82,7 @@ d3.csv(window.CrossFilter.config.dataUrl, function (data) {
   dateChart
     .width(500)
     .height(160)
-    .margins({top: 20, right: 10, bottom: 40, left: 20})
+    .margins({top: 20, right: 10, bottom: 40, left: 40})
     .dimension(dateDimension)
     .group(dateGroup)
     .x(d3.time.scale().domain([new Date(2016, 1, 1), new Date(2016, 9, 30)]))
@@ -96,9 +96,9 @@ d3.csv(window.CrossFilter.config.dataUrl, function (data) {
 	   .tickFormat(d3.time.format("%b"));
 
   chartParty
-    .width(200)
+    .width(180)
     .height(160)
-    .margins({top: 0, left: 0, right: 0, bottom: 40})
+    .margins({top: 0, left: 0, right: 10, bottom: 40})
     .ordinalColors(['#3690c0','#ef3b2c'])
     .elasticX(true)
     .dimension(partyDimension)
@@ -110,7 +110,7 @@ d3.csv(window.CrossFilter.config.dataUrl, function (data) {
     .height(200)
     .x(d3.scale.ordinal())
     .xUnits(dc.units.ordinal)
-    .margins({top: 20, left: 30, right: 10, bottom: 80})
+    .margins({top: 20, left: 50, right: 10, bottom: 80})
     .group(mentionsGroup)
     .dimension(mentionsDimension)
     .barPadding(0.1)
