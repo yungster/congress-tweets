@@ -161,7 +161,7 @@ var disp;
 
   function reset_display() {
 	ofs=1, pag=20;
-	display();
+	tweetTable.redraw();
 	}
 
   function display() {
