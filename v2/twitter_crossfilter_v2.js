@@ -92,9 +92,10 @@ d3.csv(window.CrossFilter.config.dataUrl, function (data) {
     .centerBar(true)
     .elasticY(true)
     .ordinalColors(['#525252'])
-	.yAxis().ticks(5)
 	.xAxis().ticks(d3.time.months, 1)
 	   .tickFormat(d3.time.format("%b"));
+	
+  dateChart.yAxis().ticks(5);
 
   chartParty
     .width(180)
