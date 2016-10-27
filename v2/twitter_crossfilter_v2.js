@@ -129,7 +129,7 @@ d3.csv(window.CrossFilter.config.dataUrl, function (data) {
     .group(all)
   
   tweetTable
-    .dimension(monthDimension)
+    .dimension(dateDimension)
     .group(function (d) {var monthFormat = d3.time.format("%B %Y");
                             return monthFormat(d.dd);})
     .size(Infinity)
