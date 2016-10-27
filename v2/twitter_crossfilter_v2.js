@@ -124,7 +124,7 @@ d3.csv(window.CrossFilter.config.dataUrl, function (data) {
             if(d.key == 'Other') 
                 return "other"
             return "something";})
-    .y(d3.scale.linear())
+    .y(d3.scale.sqrt())
     .elasticY(true)
     .yAxis().ticks(5);
 
