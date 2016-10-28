@@ -81,11 +81,11 @@ d3.csv(window.CrossFilter.config.dataUrl, function (data) {
             
   dateChart
     .width(500)
-    .height(160)
+    .height(200)
     .margins({top: 20, right: 10, bottom: 40, left: 40})
     .dimension(dateDimension)
     .group(dateGroup)
-    .x(d3.time.scale().domain([new Date(2016, 1, 1), new Date(2016, 9, 30)]))
+    .x(d3.time.scale().domain([new Date(2016, 1, 1), new Date(2016, 9, 22)]))
     .xUnits(d3.time.days)
     .barPadding(0.0)
     .outerPadding(0.00)
@@ -99,7 +99,7 @@ d3.csv(window.CrossFilter.config.dataUrl, function (data) {
 
   chartParty
     .width(210)
-    .height(160)
+    .height(200)
     .margins({top: 0, left: 15, right: 30, bottom: 40})
     .ordinalColors(['#3690c0','#ef3b2c'])
     .elasticX(true)
@@ -109,7 +109,7 @@ d3.csv(window.CrossFilter.config.dataUrl, function (data) {
 
   chartMentions 
     .width(320)
-    .height(200)
+    .height(240)
     .x(d3.scale.ordinal())
     .xUnits(dc.units.ordinal)
     .margins({top: 20, left: 50, right: 10, bottom: 80})
