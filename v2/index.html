@@ -85,7 +85,7 @@
 	        <div id='date-chart'>
 	            <h5><strong>
 	                Tweet Count by Day
-	                </strong>
+	                </strong> (click and drag to filter for a date range)
 	                <span>
 	                <a class="reset"
 	                    href="javascript:dateChart.filterAll();dc.redrawAll();"
@@ -98,7 +98,7 @@
 	    </div>
 		<div class='row' style='margin-bottom:20px;font-size:15px;'>
 	        <div>
-	            <a href="javascript:dc.filterAll(); dc.renderAll(); reset_display()">Reset All Filters</a>
+	            <a href="javascript:dc.filterAll(); dc.renderAll(); reset_to_first()">Reset All Filters</a>
 	        </div>
 	        <div class='col-md-offset-4' id='retweet-chart'>
 	            <h5><strong>
@@ -123,7 +123,7 @@
 	            .
 	            <input id="last" class="btn" type="Button" value="Last" onclick="javascript:last()" />
 	            <input id="next" class="btn" type="button" value="Next" onclick="javascript:next()"/>
-				<input id="reset_display" class="btn" type="button" value="Reset to First" onclick="javascript:reset_display()"/>
+				<input id="reset_to_first" class="btn" type="button" value="Reset to First" onclick="javascript:reset_to_first()"/>
 	        </div>
 	    </div>
 	    <div class="row">

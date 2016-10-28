@@ -98,17 +98,17 @@ d3.csv(window.CrossFilter.config.dataUrl, function (data) {
   dateChart.yAxis().ticks(5);
 
   chartParty
-    .width(180)
+    .width(210)
     .height(160)
     .margins({top: 0, left: 15, right: 30, bottom: 40})
     .ordinalColors(['#3690c0','#ef3b2c'])
     .elasticX(true)
     .dimension(partyDimension)
     .group(partyGroup)
-    .xAxis().ticks(4);
+    .xAxis().ticks(3);
 
   chartMentions 
-    .width(350)
+    .width(320)
     .height(200)
     .x(d3.scale.ordinal())
     .xUnits(dc.units.ordinal)
@@ -159,7 +159,7 @@ var ofs = 1, pag = 20;
 var currentSize = ndx.size();
 var disp;
 
-  function reset_display() {
+  function reset_to_first() {
 	ofs=1, pag=20;
 	update();
 	tweetTable.redraw();
@@ -176,7 +176,7 @@ var disp;
           .attr('disabled', ofs-pag<0 ? 'true' : null);
       d3.select('#next')
           .attr('disabled', ofs+pag>=currentSize ? 'true' : null);
-      d3.select('#reset_display')
+      d3.select('#reset_to_first')
           .attr('disabled', ofs-pag<0 ? 'true' : null);
       d3.select('#size').text(ndx.size());
   }
