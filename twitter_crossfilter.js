@@ -2,7 +2,7 @@ var chartParty = dc.rowChart('#chart-one');
 var chartMentions = dc.barChart('#chart-two');
 var retweetDisplay = dc.numberDisplay('#retweet-chart');
 var favDisplay = dc.numberDisplay('#fav-chart');
-var monthChart = dc.barChart('#month-chart');
+var dateChart = dc.barChart('#date-chart');
 var tweetTable = dc.dataTable('#data-table');
 var tweetCount = dc.dataCount('.dc-data-count');
 var ndx;
@@ -41,8 +41,8 @@ d3.csv(window.CrossFilter.config.dataUrl, function (data) {
         return d;
     });
     
-  var monthDimension = ndx.dimension(function (d) {
-       return d3.time.month(d.dd);
+  var dateDimension = ndx.dimension(function (d) {
+       return d3.time.day(d.dd);
   })
 
   
@@ -60,7 +60,7 @@ d3.csv(window.CrossFilter.config.dataUrl, function (data) {
   var fav2group = favDimension.group();
   reducerF(fav2group);
   
-  var monthGroup = monthDimension.group().reduceCount(function (d) {
+  var dateGroup = dateDimension.group().reduceCount(function (d) {
       return d;
   })
 
@@ -79,36 +79,40 @@ d3.csv(window.CrossFilter.config.dataUrl, function (data) {
         function(d) { 
             return d.value.median; });
             
-  monthChart
-    .width(400)
-    .height(210)
-    .margins({top: 20, right: 20, bottom: 40, left: 40})
-    .dimension(monthDimension)
-    .group(monthGroup)
-    .x(d3.time.scale().domain([new Date(2016, 2, 15), new Date(2016, 8, 15)]))
-    .xUnits(d3.time.months)
-    .barPadding(0.2)
-    .outerPadding(0.05)
+  dateChart
+    .width(500)
+    .height(200)
+    .margins({top: 20, right: 10, bottom: 40, left: 40})
+    .dimension(dateDimension)
+    .group(dateGroup)
+    .x(d3.time.scale().domain([new Date(2016, 1, 1), new Date(2016, 9, 22)]))
+    .xUnits(d3.time.days)
+    .barPadding(0.0)
+    .outerPadding(0.00)
     .centerBar(true)
     .elasticY(true)
     .ordinalColors(['#525252'])
+	.xAxis().ticks(d3.time.months, 1)
+	   .tickFormat(d3.time.format("%b"));
+	
+  dateChart.yAxis().ticks(5);
 
   chartParty
-    .width(300)
-    .height(210)
-    .margins({top: 20, left: 10, right: 20, bottom: 40})
+    .width(210)
+    .height(200)
+    .margins({top: 0, left: 15, right: 30, bottom: 40})
     .ordinalColors(['#3690c0','#ef3b2c'])
     .elasticX(true)
     .dimension(partyDimension)
     .group(partyGroup)
-    .xAxis().ticks(5);
+    .xAxis().ticks(3);
 
   chartMentions 
-    .width(450)
-    .height(250)
+    .width(320)
+    .height(240)
     .x(d3.scale.ordinal())
     .xUnits(dc.units.ordinal)
-    .margins({top: 20, left: 50, right: 50, bottom: 80})
+    .margins({top: 20, left: 50, right: 10, bottom: 80})
     .group(mentionsGroup)
     .dimension(mentionsDimension)
     .barPadding(0.1)
@@ -122,14 +126,14 @@ d3.csv(window.CrossFilter.config.dataUrl, function (data) {
             return "something";})
     .y(d3.scale.sqrt())
     .elasticY(true)
-    .yAxis().ticks(4);
+    .yAxis().ticks(5);
 
   tweetCount
     .dimension(ndx)
     .group(all)
   
   tweetTable
-    .dimension(monthDimension)
+    .dimension(dateDimension)
     .group(function (d) {var monthFormat = d3.time.format("%B %Y");
                             return monthFormat(d.dd);})
     .size(Infinity)
@@ -152,7 +156,18 @@ d3.csv(window.CrossFilter.config.dataUrl, function (data) {
   dc.renderAll();  
 })
 var ofs = 1, pag = 20;
+var currentSize = ndx.size();
+var disp;
+
+  function reset_to_first() {
+	ofs=1, pag=20;
+	update();
+	tweetTable.redraw();
+	}
+
   function display() {
+	  disp = document.getElementsByClassName('filter-count')[0].innerHTML
+	  currentSize = parseFloat(disp.replace(',',''));
       d3.select('#begin')
           .text(ofs);
       d3.select('#end')
@@ -160,7 +175,9 @@ var ofs = 1, pag = 20;
       d3.select('#last')
           .attr('disabled', ofs-pag<0 ? 'true' : null);
       d3.select('#next')
-          .attr('disabled', ofs+pag>=ndx.size() ? 'true' : null);
+          .attr('disabled', ofs+pag>=currentSize ? 'true' : null);
+      d3.select('#reset_to_first')
+          .attr('disabled', ofs-pag<0 ? 'true' : null);
       d3.select('#size').text(ndx.size());
   }
   function update() {
